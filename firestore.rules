@@ -1,0 +1,72 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Default deny catch-all
+    match /{document=**} {
+      allow read, write: if false;
+    }
+
+    // Helper primitive for document IDs
+    function isValidId(id) { 
+      return id is string && id.size() <= 128 && id.size() >= 1; 
+    }
+
+    // Test connection health check document
+    match /test/{docId} {
+      allow read, write: if true;
+    }
+
+    // Registered readers collection
+    match /users/{userId} {
+      allow get: if isValidId(userId);
+      allow list: if true;
+      allow create, update: if isValidId(userId);
+      allow delete: if isValidId(userId);
+
+      // Reader progress cloud sync state document
+      match /progress/state {
+        allow read, write: if isValidId(userId);
+      }
+
+      // Sponsor scratch state persistence per user
+      match /sponsor/{document=**} {
+        allow read, write: if isValidId(userId);
+      }
+    }
+
+    function isValidReview(data) {
+      return data.author is string && data.author.size() <= 100 && data.author.size() >= 1 &&
+             data.message is string && data.message.size() <= 2000 && data.message.size() >= 1;
+    }
+
+    // Public community reader reflections & reviews (real-time sync across devices)
+    match /reviews/{reviewId} {
+      allow get: if isValidId(reviewId);
+      allow list: if true;
+      allow create: if isValidId(reviewId) && isValidReview(request.resource.data);
+      allow update, delete: if isValidId(reviewId);
+    }
+
+    // Global application settings (AI status, Maintenance mode, Announcements, Limits)
+    match /appSettings/{settingId} {
+      allow read: if true;
+      allow write: if isValidId(settingId);
+    }
+
+    // User management records
+    match /user_management/{userId} {
+      allow read, write: if isValidId(userId);
+    }
+
+    // Payment records
+    match /payments/{paymentId} {
+      allow read, list, write: if isValidId(paymentId);
+    }
+
+    // Server audit logs
+    match /auditLogs/{logId} {
+      allow read, list, write: if isValidId(logId);
+    }
+  }
+}

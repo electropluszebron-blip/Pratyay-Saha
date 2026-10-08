@@ -1,0 +1,273 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-cinzel: 'Cinzel', serif;
+    --font-cormorant: 'Cormorant Garamond', Georgia, serif;
+    --font-bodoni: 'Bodoni Moda', 'Didot', 'Bodoni MT', 'Cormorant Garamond', serif;
+    --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  }
+
+  /* 
+    Standard Normal Mobile & Web Viewport Reset
+    Locks 1:1 true device dimensions without resolution alteration or desktop simulation.
+  */
+  html {
+    font-size: 16px;
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+    background-color: #FAF7F2;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  * {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  body {
+    width: 100%;
+    min-height: 100dvh;
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
+    background-color: #FAF7F2;
+  }
+
+  #root {
+    width: 100%;
+    max-width: 100%;
+    min-height: 100dvh;
+    overflow-x: hidden;
+    position: relative;
+    background-color: #FAF7F2;
+  }
+}
+
+.font-cinzel {
+  font-family: var(--font-cinzel);
+}
+
+.font-cormorant {
+  font-family: var(--font-cormorant);
+}
+
+.font-bodoni {
+  font-family: var(--font-bodoni);
+}
+
+.font-sans-clean {
+  font-family: var(--font-sans);
+}
+
+/* Background Mandala Subtle Watermark Textures */
+.bg-alpona-pattern {
+  background-color: #FAF7F2;
+  background-image: radial-gradient(#D4AF37 0.75px, transparent 0.75px), radial-gradient(#C88A58 0.5px, #FAF7F2 0.5px);
+  background-size: 30px 30px;
+  background-position: 0 0, 15px 15px;
+}
+
+.bg-alpona-dark {
+  background-color: #120F0D;
+  background-image: radial-gradient(#D4AF37 0.6px, transparent 0.6px), radial-gradient(#8E5D38 0.4px, #120F0D 0.4px);
+  background-size: 32px 32px;
+  background-position: 0 0, 16px 16px;
+}
+
+/* Sacred Rotating Mandalas & Sun Wheels Animations (Hardware 3D Composited) */
+@keyframes spinClockwise {
+  from {
+    transform: rotate3d(0, 0, 1, 0deg);
+  }
+  to {
+    transform: rotate3d(0, 0, 1, 360deg);
+  }
+}
+
+@keyframes spinCounterClockwise {
+  from {
+    transform: rotate3d(0, 0, 1, 0deg);
+  }
+  to {
+    transform: rotate3d(0, 0, 1, -360deg);
+  }
+}
+
+@keyframes cosmicBinduPulse {
+  0%, 100% {
+    transform: scale(0.95);
+    opacity: 0.85;
+    filter: drop-shadow(0 0 12px rgba(212, 175, 55, 0.5));
+  }
+  50% {
+    transform: scale(1.08);
+    opacity: 1;
+    filter: drop-shadow(0 0 28px rgba(229, 169, 60, 0.9)) drop-shadow(0 0 45px rgba(185, 56, 38, 0.6));
+  }
+}
+
+@keyframes sunwheelRayShimmer {
+  0%, 100% {
+    stroke-opacity: 0.7;
+  }
+  50% {
+    stroke-opacity: 1;
+  }
+}
+
+.animate-mandala-cw-slow {
+  animation: spinClockwise 48s linear infinite;
+  transform-origin: center center;
+}
+
+.animate-mandala-ccw-slower {
+  animation: spinCounterClockwise 64s linear infinite;
+  transform-origin: center center;
+}
+
+.animate-mandala-cw-medium {
+  animation: spinClockwise 28s linear infinite;
+  transform-origin: center center;
+}
+
+.animate-mandala-ccw-fast {
+  animation: spinCounterClockwise 18s linear infinite;
+  transform-origin: center center;
+}
+
+.animate-bindu-pulse {
+  animation: cosmicBinduPulse 4s ease-in-out infinite;
+  transform-origin: center center;
+}
+
+/* Parchment / Literary Paper Textures */
+.paper-texture {
+  background-color: #FAF6EF;
+  box-shadow: inset 0 0 40px rgba(180, 140, 90, 0.08), 0 10px 30px -10px rgba(0, 0, 0, 0.15);
+}
+
+.paper-texture-dark {
+  background-color: #1A1613;
+  box-shadow: inset 0 0 50px rgba(0, 0, 0, 0.6), 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+}
+
+.paper-texture-sepia {
+  background-color: #F4EAD4;
+  box-shadow: inset 0 0 40px rgba(139, 90, 43, 0.12), 0 10px 30px -10px rgba(0, 0, 0, 0.15);
+}
+
+/* Ultra Glossy Animated Shimmering Text & Gold Glow */
+@keyframes shimmerGold {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.sparkle-gold-text {
+  background: linear-gradient(
+    90deg,
+    #8B3A1C 0%,
+    #D4AF37 25%,
+    #FFF4D0 50%,
+    #E5A93C 75%,
+    #8B3A1C 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shimmerGold 4s linear infinite;
+  text-shadow: 0 0 20px rgba(212, 175, 55, 0.2);
+}
+
+.gold-gradient-text {
+  background: linear-gradient(135deg, #7A2814 0%, #D48A37 35%, #F7D486 50%, #B93826 70%, #7A2814 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shimmerGold 6s linear infinite;
+}
+
+@keyframes floatSparkle {
+  0%, 100% {
+    transform: translateY(0) scale(1);
+    opacity: 0.8;
+  }
+  50% {
+    transform: translateY(-6px) scale(1.15);
+    opacity: 1;
+    filter: drop-shadow(0 0 8px rgba(247, 212, 134, 0.8));
+  }
+}
+
+.sparkle-star {
+  animation: floatSparkle 2.5s ease-in-out infinite;
+}
+
+.sparkle-star-delay-1 {
+  animation: floatSparkle 2.8s ease-in-out infinite 0.7s;
+}
+
+.sparkle-star-delay-2 {
+  animation: floatSparkle 3.2s ease-in-out infinite 1.4s;
+}
+
+.gold-border-glow {
+  border: 1px solid rgba(212, 175, 55, 0.35);
+  box-shadow: 0 0 20px rgba(212, 175, 55, 0.18);
+}
+
+.glossy-card {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.96) 0%, rgba(250, 246, 240, 0.99) 100%);
+  border: 1px solid rgba(212, 175, 55, 0.35);
+  box-shadow: 0 16px 40px -10px rgba(122, 40, 20, 0.08), 0 4px 16px -2px rgba(0, 0, 0, 0.04);
+}
+
+.glossy-card-dark {
+  background: linear-gradient(180deg, rgba(28, 23, 20, 0.97) 0%, rgba(18, 15, 13, 0.99) 100%);
+  border: 1px solid rgba(212, 175, 55, 0.25);
+  box-shadow: 0 16px 40px -10px rgba(0, 0, 0, 0.6), 0 0 25px rgba(212, 175, 55, 0.08);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #D4AF37;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #9E472A;
+}
+
+/* 3D Book Page Flip Effect Classes */
+.perspective-1000 {
+  perspective: 1200px;
+}
+.transform-style-3d {
+  transform-style: preserve-3d;
+}
+.backface-hidden {
+  backface-visibility: hidden;
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-150%);
+  }
+  100% {
+    transform: translateX(150%);
+  }
+}
+

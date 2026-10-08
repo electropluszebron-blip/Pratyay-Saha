@@ -1,0 +1,63 @@
+{
+  "id": "/",
+  "name": "Wilting of Words",
+  "short_name": "WiltingWords",
+  "description": "Official Digital Reader and Literary Sanctuary for the novel Wilting of Words by author Pratyay Saha.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "display_override": ["window-controls-overlay", "standalone", "minimal-ui"],
+  "orientation": "portrait-primary",
+  "theme_color": "#8B2213",
+  "background_color": "#14100D",
+  "prefer_related_applications": false,
+  "categories": ["books", "lifestyle", "education"],
+  "icons": [
+    {
+      "src": "/icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icons/maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/icons/icon-192.svg",
+      "sizes": "192x192",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "/icons/icon-512.svg",
+      "sizes": "512x512",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Open E-Reader Cabinet",
+      "short_name": "E-Reader",
+      "description": "Directly open the 219-page manuscript reader",
+      "url": "/#reader-cabinet",
+      "icons": [{ "src": "/icons/icon-192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "30-Min Certificate",
+      "short_name": "Certificate",
+      "description": "Check your Certificate of Literary Mastery status",
+      "url": "/#hero-cover",
+      "icons": [{ "src": "/icons/icon-192.png", "sizes": "192x192" }]
+    }
+  ]
+}

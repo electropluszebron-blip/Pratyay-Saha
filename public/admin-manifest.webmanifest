@@ -1,0 +1,22 @@
+{
+  "short_name": "WoW Admin",
+  "name": "Wilting of Words Admin",
+  "description": "Private Mobile-First Administrative Remote Control Portal for Wilting of Words",
+  "icons": [
+    {
+      "src": "/icons/icon-192.svg",
+      "type": "image/svg+xml",
+      "sizes": "192x192"
+    },
+    {
+      "src": "/icons/icon-192.svg",
+      "type": "image/svg+xml",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": "/?mode=admin",
+  "background_color": "#120D0A",
+  "theme_color": "#8B2213",
+  "display": "standalone",
+  "orientation": "portrait"
+}

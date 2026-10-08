@@ -1,0 +1,7 @@
+User-agent: *
+Disallow: /api/
+Disallow: /admin/
+Disallow: /profile/
+Disallow: /auth/
+Disallow: /private/
+Sitemap: https://wiltingofwords.com/sitemap.xml

@@ -1,0 +1,133 @@
+{
+  "entities": {
+    "User": {
+      "title": "User",
+      "description": "Registered readers in the Wilting of Words literary archives",
+      "type": "object",
+      "properties": {
+        "email": {
+          "type": "string",
+          "format": "email",
+          "description": "Unique email address of the reader"
+        },
+        "name": {
+          "type": "string",
+          "description": "Full name of the reader",
+          "maxLength": 100
+        },
+        "createdAt": {
+          "type": "string",
+          "description": "ISO timestamp of account creation"
+        },
+        "lastLoginAt": {
+          "type": "string",
+          "description": "ISO timestamp of last sign in"
+        }
+      },
+      "required": ["email", "name"]
+    },
+    "Review": {
+      "title": "Review",
+      "description": "Community reader reflections and guestbook reviews visible across all devices in real time",
+      "type": "object",
+      "properties": {
+        "author": {
+          "type": "string",
+          "description": "Full name of the reader",
+          "maxLength": 100,
+          "minLength": 1
+        },
+        "location": {
+          "type": "string",
+          "description": "City or geographical location of the reader",
+          "maxLength": 100
+        },
+        "message": {
+          "type": "string",
+          "description": "Reflective review or note on the book",
+          "maxLength": 2000,
+          "minLength": 1
+        },
+        "likes": {
+          "type": "number",
+          "description": "Total reader appreciations / heart likes"
+        },
+        "createdAt": {
+          "type": "string",
+          "description": "ISO timestamp of reflection submission"
+        },
+        "timestamp": {
+          "type": "number",
+          "description": "Unix millisecond timestamp for sorting"
+        },
+        "pageNumber": {
+          "type": "number",
+          "description": "Optional manuscript page number the reader was viewing when reviewing"
+        }
+      },
+      "required": ["author", "message"]
+    },
+    "ReaderProgress": {
+      "title": "ReaderProgress",
+      "description": "Synced reading progress, bookmarks, and page highlights for a registered reader",
+      "type": "object",
+      "properties": {
+        "currentPage": {
+          "type": "number",
+          "description": "The page number the reader last reached"
+        },
+        "bookmarks": {
+          "type": "array",
+          "description": "List of page numbers bookmarked by the reader"
+        },
+        "highlights": {
+          "type": "array",
+          "description": "List of serialized highlights with pages, colors, and notes"
+        },
+        "updatedAt": {
+          "type": "string",
+          "description": "ISO timestamp of last progress update"
+        }
+      },
+      "required": ["currentPage", "bookmarks", "highlights"]
+    },
+    "SponsorScratch": {
+      "title": "SponsorScratch",
+      "description": "Persistent scratch-to-reveal state for the premium sponsor card for a specific authenticated reader",
+      "type": "object",
+      "properties": {
+        "sponsorScratchRevealed": {
+          "type": "boolean",
+          "description": "True if this reader has scratched and revealed the sponsor card"
+        },
+        "revealedAt": {
+          "type": "string",
+          "description": "ISO timestamp when the card was revealed"
+        },
+        "userId": {
+          "type": "string",
+          "description": "The unique Firebase Authentication UID of the reader"
+        }
+      },
+      "required": ["sponsorScratchRevealed", "userId"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": "User",
+      "description": "Collection of registered readers mapped by their sanitized email or user id"
+    },
+    "/users/{userId}/progress/state": {
+      "schema": "ReaderProgress",
+      "description": "The active, synced reading progress state document for a reader"
+    },
+    "/users/{userId}/sponsor/scratch": {
+      "schema": "SponsorScratch",
+      "description": "Per-user persistent state of the premium sponsor scratch-card reveal"
+    },
+    "/reviews/{reviewId}": {
+      "schema": "Review",
+      "description": "Public community reader reflections and guestbook entries synced across all devices"
+    }
+  }
+}

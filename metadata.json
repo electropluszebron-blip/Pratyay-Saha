@@ -1,0 +1,8 @@
+{
+  "name": "Remix Remix Wilting of Words - Digital Reader \u0026 Literary Archive",
+  "description": "An art-integrated, vibrant glossy digital reader and literary showcase for \u0027Wilting of Words\u0027 by Pratyay Saha, published by Technodef.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

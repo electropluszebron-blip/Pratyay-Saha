@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Remix Wilting of Words - Digital Reader &amp; Literary Archive</title>
+    <meta name="description" content="An art-integrated, vibrant glossy digital reader and literary showcase for 'Wilting of Words' by Pratyay Saha, published by Technodef." />
+    
+    <link rel="canonical" href="https://wiltingofwords.com/" />
+    
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Remix Wilting of Words - Digital Reader & Literary Archive",
+      "url": "https://wiltingofwords.com/"
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Book",
+      "name": "Wilting of Words",
+      "author": {
+        "@type": "Person",
+        "name": "Pratyay Saha"
+      }
+    }
+    </script>
+    <meta property="og:title" content="Remix Wilting of Words - Digital Reader &amp; Literary Archive" />
+    <meta property="og:description" content="An art-integrated, vibrant glossy digital reader and literary showcase for 'Wilting of Words' by Pratyay Saha, published by Technodef." />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <!-- PWA & Mobile Installation Standards -->
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <meta name="theme-color" content="#8B2213" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="WiltingWords" />
+    <link rel="icon" type="image/svg+xml" href="/icons/icon-192.svg" />
+    <link rel="apple-touch-icon" href="/icons/icon-192.svg" />
+    
+    <!-- Google Fonts for Classical Literary Typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Cinzel:wght@400;600;700;800;900&family=Cinzel+Decorative:wght@700;900&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600;1,700&family=Great+Vibes&family=Playfair+Display:ital,wght@0,600;0,800;1,600;1,700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <script>
+      // Automatic recovery for stale Service Worker asset 404s
+      window.addEventListener('error', function(e) {
+        if (e && e.target && (e.target.tagName === 'SCRIPT' || e.target.tagName === 'LINK')) {
+          if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.getRegistrations().then(function(regs) {
+              regs.forEach(function(r) { r.unregister(); });
+            });
+          }
+        }
+      }, true);
+    </script>
+  </head>
+  <body class="bg-[#FAF7F2] text-[#2D241E] antialiased selection:bg-[#B93826] selection:text-white overflow-x-hidden">
+    <!-- Native Background Audio Element with New Soundtrack -->
+    <audio 
+      id="exclusive-bg-music-player" 
+      src="/wilting_of_words_soundtrack.mp3" 
+      loop 
+      playsinline 
+      preload="none"
+    ></audio>
+
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
+

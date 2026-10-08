@@ -1,0 +1,21 @@
+{
+  "short_name": "WiltingOfWords",
+  "name": "Wilting of Words — Digital Heritage Reader",
+  "icons": [
+    {
+      "src": "/pwa-192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "/pwa-512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": "/",
+  "background_color": "#0F0B08",
+  "theme_color": "#B93826",
+  "display": "standalone",
+  "orientation": "portrait"
+}
